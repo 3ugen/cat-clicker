@@ -57,7 +57,7 @@ for (let [key, value] of cats) {
   const cName = document.createElement("h3");
   const clickCount = document.createElement("h3")
   const image = document.createElement("img");
-  clickCount.innerText = "Number of counts: 0"
+  clickCount.innerText = "Number of clicks: 0"
   item.setAttribute("id", key)
   cName.classList.add("cat-name");
   clickCount.classList.add("click-count");
@@ -74,7 +74,7 @@ for (let [key, value] of cats) {
     console.log(this);
     // `#${cat1} > h3.click-count`
     //  #cat2 > h3.click-count
-    document.querySelector(`#${key} > h3.click-count`).innerText = `Number of counts: ${count}`
+    document.querySelector(`#${key} > h3.click-count`).innerText = `Number of clicks: ${count}`
   })
   menu.appendChild(item);
 }
