@@ -47,9 +47,15 @@ let cats = new Map([
 // cats.push(cat5);
 
 const menu = document.createElement("div");
-document.body.appendChild(menu);
 menu.classList.add("cat-menu");
+document.body.appendChild(menu);
 // let count = 0;
+const catHero = document.createElement("div");
+catHero.classList.add("cat-hero");
+document.body.appendChild(catHero);
+
+
+
 
 for (let [key, value] of cats) {
   let count = 0;
@@ -65,7 +71,7 @@ for (let [key, value] of cats) {
   image.src = value;
   image.classList.add("responsive");
 
-  item.appendChild(cName);
+  // item.appendChild(cName);
   item.appendChild(clickCount);
   item.appendChild(image);
   item.addEventListener("click", function (e) {
@@ -75,6 +81,8 @@ for (let [key, value] of cats) {
     // `#${cat1} > h3.click-count`
     //  #cat2 > h3.click-count
     document.querySelector(`#${key} > h3.click-count`).innerText = `Number of clicks: ${count}`
+    document.querySelector(".cat-hero").innerText = "";
+    document.querySelector(".cat-hero").appendChild(this.cloneNode(true));
   })
   menu.appendChild(item);
 }
