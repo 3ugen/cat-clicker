@@ -1,0 +1,11 @@
+.responsive {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+.cat-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
