@@ -1,18 +1,57 @@
-// document.body.innerText = "";
+/* ======= Model ======= */
+let model = {
+  currentCat = null,
+  cats: [
+    {
+      clickCount: 0,
+      name: "Smoky",
+      imgSrc: "img/alexander-possingham-209285-unsplash.jpg",
+      imgAlt: "Photo by Alexander Possingham on Unsplash"
+    },
+    {
+      clickCount: 0,
+      name: "Mumo",
+      imSrc: "img/emre-gencer-228223-unsplash.jpg",
+      imgAlt: "Photo by Emre Gencer on Unsplash"
+    },
+
+    {
+      clickCount: 0,
+      name: "Mimi",
+      imSrc: "img/erik-jan-leusink-144775-unsplash.jpg",
+      imgAlt: "Photo by Erik-Jan Leusink on Unsplash"
+    },
+    {
+      clickCount: 0,
+      name: "Shmushy",
+      imSrc: "img/mikhail-vasilyev-34524-unsplash.jpg",
+      imgAlt: "Photo by Mikhail Vasilyev on Unsplash"
+    },
+    {
+      clickCount: 0,
+      name: "Grumzy",
+      imSrc: "img/mikhail-vasilyev-130018-unsplash.jpg",
+      mimgAlt: "Photo by Mikhail Vasilyev on Unsplash"
+    }
+  ]
+};
+/* ======= Octopus ======= */
+
+/* ======= View ======= */
 
 function Cat(catName, url) {
-  this.catName = catName,
-    this.url = url,
-    this.fullcat = function () {
+  (this.catName = catName),
+    (this.url = url),
+    (this.fullcat = function() {
       const div = document.createElement("div");
       const h3 = document.createElement("h3");
       const img = document.createElement("img");
-      h3.innerText = catName
+      h3.innerText = catName;
       img.src = url;
       div.appendChild(h3);
       div.appendChild(img);
       return document.body.appendChild(div);
-    }
+    });
 }
 // Photo by Mikhail Vasilyev on Unsplash
 // Photo by Emre Gencer on Unsplash
@@ -54,17 +93,14 @@ const catHero = document.createElement("div");
 catHero.classList.add("cat-hero");
 document.body.appendChild(catHero);
 
-
-
-
 for (let [key, value] of cats) {
   let count = 0;
   const item = document.createElement("div");
   const cName = document.createElement("h3");
-  const clickCount = document.createElement("h3")
+  const clickCount = document.createElement("h3");
   const image = document.createElement("img");
-  clickCount.innerText = "Number of clicks: 0"
-  item.setAttribute("id", key)
+  clickCount.innerText = "Number of clicks: 0";
+  item.setAttribute("id", key);
   cName.classList.add("cat-name");
   clickCount.classList.add("click-count");
   cName.innerText = key;
@@ -74,15 +110,17 @@ for (let [key, value] of cats) {
   // item.appendChild(cName);
   item.appendChild(clickCount);
   item.appendChild(image);
-  item.addEventListener("click", function (e) {
-    count ++;
+  item.addEventListener("click", function(e) {
+    count++;
     console.log(e);
     console.log(this);
     // `#${cat1} > h3.click-count`
     //  #cat2 > h3.click-count
-    document.querySelector(`#${key} > h3.click-count`).innerText = `Number of clicks: ${count}`
+    document.querySelector(
+      `#${key} > h3.click-count`
+    ).innerText = `Number of clicks: ${count}`;
     document.querySelector(".cat-hero").innerText = "";
     document.querySelector(".cat-hero").appendChild(this.cloneNode(true));
-  })
+  });
   menu.appendChild(item);
 }
