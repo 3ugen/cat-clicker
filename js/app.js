@@ -35,7 +35,9 @@ let model = {
     }
   ]
 };
+
 /* ======= Octopus ======= */
+
 let octopus = {
   init: function () {
     model.currentCat = model.cats[0];
@@ -56,8 +58,28 @@ let octopus = {
     catView.render();
   }
 }
+
 /* ======= View ======= */
 
+let catView = {
+  init: function () {
+    this.catElem = document.getElementById("cat");
+    this.catNameElem = document.getElementById("cat-name");
+    this.catImageElem = document.getElementById("cat-img");
+    this.countElem = document.getElementById("cat-count");
+
+    this.catImageElem.addEventListener("click", function (e) {
+      octopus.incrementCatCounter();
+    });
+    this.render();
+  },
+  render: function () {
+    let currentCat = octopus.getCurrentCat();
+    this.countElem.innerText = currentCat.clickCount;
+    this.catNameElem.innerText = currentCat.name;
+    this.catImageElem.src = currentCat.imgSrc;
+  }
+};
 function Cat(catName, url) {
   (this.catName = catName),
     (this.url = url),
