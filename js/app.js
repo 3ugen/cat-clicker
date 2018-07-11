@@ -115,31 +115,31 @@ let catListView = {
 
 octopus.init();
 
-function Cat(catName, url) {
-  (this.catName = catName),
-    (this.url = url),
-    (this.fullcat = function() {
-      const div = document.createElement("div");
-      const h3 = document.createElement("h3");
-      const img = document.createElement("img");
-      h3.innerText = catName;
-      img.src = url;
-      div.appendChild(h3);
-      div.appendChild(img);
-      return document.body.appendChild(div);
-    });
-}
+// function Cat(catName, url) {
+//   (this.catName = catName),
+//     (this.url = url),
+//     (this.fullcat = function() {
+//       const div = document.createElement("div");
+//       const h3 = document.createElement("h3");
+//       const img = document.createElement("img");
+//       h3.innerText = catName;
+//       img.src = url;
+//       div.appendChild(h3);
+//       div.appendChild(img);
+//       return document.body.appendChild(div);
+//     });
+// }
 // Photo by Mikhail Vasilyev on Unsplash
 // Photo by Emre Gencer on Unsplash
 // Photo by Alexander Possingham on Unsplash
 // Photo by Erik-Jan Leusink on Unsplash
-let cats = new Map([
-  ["cat1", "img/alexander-possingham-209285-unsplash.jpg"],
-  ["cat2", "img/emre-gencer-228223-unsplash.jpg"],
-  ["cat3", "img/erik-jan-leusink-144775-unsplash.jpg"],
-  ["cat4", "img/mikhail-vasilyev-34524-unsplash.jpg"],
-  ["cat5", "img/mikhail-vasilyev-130018-unsplash.jpg"]
-]);
+// let cats = new Map([
+//   ["cat1", "img/alexander-possingham-209285-unsplash.jpg"],
+//   ["cat2", "img/emre-gencer-228223-unsplash.jpg"],
+//   ["cat3", "img/erik-jan-leusink-144775-unsplash.jpg"],
+//   ["cat4", "img/mikhail-vasilyev-34524-unsplash.jpg"],
+//   ["cat5", "img/mikhail-vasilyev-130018-unsplash.jpg"]
+// ]);
 
 // const cat1 = new Cat("cat1", "https://images.pexels.com/photos/122437/cat-animal-cat-portrait-cat-s-eyes-122437.jpeg");
 //
@@ -161,42 +161,42 @@ let cats = new Map([
 //
 // cats.push(cat5);
 
-const menu = document.createElement("div");
-menu.classList.add("cat-menu");
-document.body.appendChild(menu);
-// let count = 0;
-const catHero = document.createElement("div");
-catHero.classList.add("cat-hero");
-document.body.appendChild(catHero);
-
-for (let [key, value] of cats) {
-  let count = 0;
-  const item = document.createElement("div");
-  const cName = document.createElement("h3");
-  const clickCount = document.createElement("h3");
-  const image = document.createElement("img");
-  clickCount.innerText = "Number of clicks: 0";
-  item.setAttribute("id", key);
-  cName.classList.add("cat-name");
-  clickCount.classList.add("click-count");
-  cName.innerText = key;
-  image.src = value;
-  image.classList.add("responsive");
-
-  // item.appendChild(cName);
-  item.appendChild(clickCount);
-  item.appendChild(image);
-  item.addEventListener("click", function(e) {
-    count++;
-    console.log(e);
-    console.log(this);
-    // `#${cat1} > h3.click-count`
-    //  #cat2 > h3.click-count
-    document.querySelector(
-      `#${key} > h3.click-count`
-    ).innerText = `Number of clicks: ${count}`;
-    document.querySelector(".cat-hero").innerText = "";
-    document.querySelector(".cat-hero").appendChild(this.cloneNode(true));
-  });
-  menu.appendChild(item);
-}
+// const menu = document.createElement("div");
+// menu.classList.add("cat-menu");
+// document.body.appendChild(menu);
+// // let count = 0;
+// const catHero = document.createElement("div");
+// catHero.classList.add("cat-hero");
+// document.body.appendChild(catHero);
+//
+// for (let [key, value] of cats) {
+//   let count = 0;
+//   const item = document.createElement("div");
+//   const cName = document.createElement("h3");
+//   const clickCount = document.createElement("h3");
+//   const image = document.createElement("img");
+//   clickCount.innerText = "Number of clicks: 0";
+//   item.setAttribute("id", key);
+//   cName.classList.add("cat-name");
+//   clickCount.classList.add("click-count");
+//   cName.innerText = key;
+//   image.src = value;
+//   image.classList.add("responsive");
+//
+//   // item.appendChild(cName);
+//   item.appendChild(clickCount);
+//   item.appendChild(image);
+//   item.addEventListener("click", function(e) {
+//     count++;
+//     console.log(e);
+//     console.log(this);
+//     // `#${cat1} > h3.click-count`
+//     //  #cat2 > h3.click-count
+//     document.querySelector(
+//       `#${key} > h3.click-count`
+//     ).innerText = `Number of clicks: ${count}`;
+//     document.querySelector(".cat-hero").innerText = "";
+//     document.querySelector(".cat-hero").appendChild(this.cloneNode(true));
+//   });
+//   menu.appendChild(item);
+// }
