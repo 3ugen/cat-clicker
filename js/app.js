@@ -36,7 +36,26 @@ let model = {
   ]
 };
 /* ======= Octopus ======= */
-
+let octopus = {
+  init: function () {
+    model.currentCat = model.cats[0];
+    catListVew.init();
+    catView.init();
+  },
+  getCurrentCat: function () {
+    return model.currentCat;
+  },
+  getCats: function () {
+    return model.cats;
+  },
+  setCurrentCat: function (cat) {
+    model.currentCat = cat;
+  },
+  incrementCatCounter: function () {
+    model.currentCat.clickCount++;
+    catView.render();
+  }
+}
 /* ======= View ======= */
 
 function Cat(catName, url) {
