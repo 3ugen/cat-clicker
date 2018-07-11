@@ -1,6 +1,6 @@
 /* ======= Model ======= */
 let model = {
-  currentCat = null,
+  currentCat: null,
   cats: [
     {
       clickCount: 0,
@@ -80,6 +80,41 @@ let catView = {
     this.catImageElem.src = currentCat.imgSrc;
   }
 };
+
+let catListView = {
+  init: function () {
+    this.catListElem = document.getElementById("cat-list");
+    this.redner();
+  },
+  render: function () {
+    let cats = octopus.getCats();
+    this.catListElem.innerHTML = "";
+
+    for (i = 0; i < cats.length; i++) {
+            // this is the cat we're currently looping over
+            cat = cats[i];
+
+            // make a new cat list item and set its text
+            elem = document.createElement('li');
+            elem.textContent = cat.name;
+
+            // on click, setCurrentCat and render the catView
+            // (this uses our closure-in-a-loop trick to connect the value
+            //  of the cat variable to the click event function)
+            elem.addEventListener('click', (function(catCopy) {
+                return function() {
+                    octopus.setCurrentCat(catCopy);
+                    catView.render();
+                };
+            })(cat));
+            this.catListElem.appendChild(elem);
+
+  }
+}
+};
+
+octopus.init();
+
 function Cat(catName, url) {
   (this.catName = catName),
     (this.url = url),
