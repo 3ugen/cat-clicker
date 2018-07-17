@@ -1,16 +1,16 @@
-.responsive {
+#cat-img {
     width: 100%;
-    max-width: 200px;
+    max-width: 500px;
     height: auto;
 }
 
-.cat-menu {
+#cat-list {
+  list-style-type: none;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.cat-hero {
-  display: flex;
-  justify-content: center;
+#cat-hero {
+  display: block;
 }
